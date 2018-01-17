@@ -1,0 +1,11 @@
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\bin\Debug\netcoreapp2.0\HallOfFame.WebApi.deps.json
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\bin\Debug\netcoreapp2.0\HallOfFame.WebApi.runtimeconfig.json
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\bin\Debug\netcoreapp2.0\HallOfFame.WebApi.runtimeconfig.dev.json
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\bin\Debug\netcoreapp2.0\HallOfFame.WebApi.dll
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\obj\Debug\netcoreapp2.0\HallOfFame.WebApi.csprojResolveAssemblyReference.cache
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\obj\Debug\netcoreapp2.0\HallOfFame.WebApi.csproj.CoreCompileInputs.cache
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\obj\Debug\netcoreapp2.0\HallOfFame.WebApi.AssemblyInfoInputs.cache
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\obj\Debug\netcoreapp2.0\HallOfFame.WebApi.AssemblyInfo.cs
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\bin\Debug\netcoreapp2.0\HallOfFame.WebApi.pdb
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\obj\Debug\netcoreapp2.0\HallOfFame.WebApi.dll
+C:\Git_Repo\devtest\HallOfFame\HallOfFame.WebApi\obj\Debug\netcoreapp2.0\HallOfFame.WebApi.pdb
