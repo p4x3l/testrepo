@@ -6,6 +6,7 @@ const mapStateToProps = state => (
     {
         token: state.authReducer.token,
         user: state.authReducer.user,
+        error: state.authReducer.error,
     }
 );
 
@@ -17,8 +18,8 @@ const mapDispatchToProps = dispatch => (
         logout: () => {
             dispatch(logoutUser());
         },
-        getUserData: () => {
-            dispatch(getUserData());
+        getUserData: (token) => {
+            dispatch(getUserData(token));
         },
     }
 );

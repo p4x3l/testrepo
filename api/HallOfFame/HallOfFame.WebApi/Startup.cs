@@ -65,6 +65,14 @@ namespace HallOfFame.WebApi
                     = Configuration.GetSection("MongoConnection:Database").Value;
             });
 
+            // Enable CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("halloffame",
+                    policy => policy.WithOrigins("http://localhost:3000"));
+            });
+
+            // Enable Automapper
             services.AddAutoMapper();
 
             services.AddTransient<IUserService, UserService>();
@@ -88,6 +96,8 @@ namespace HallOfFame.WebApi
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
+            app.UseCors("halloffame");
 
             app.UseMvc();
         }

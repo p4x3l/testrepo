@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace HallOfFame.WebApi.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     public class AuthController : Controller
     {
         private IUserService _userService;
