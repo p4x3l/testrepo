@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import UserForm from '../UserForm/UserForm';
-import './UserLogin.css';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+} from 'react-router-dom';
+
+import HomeContainer from '../../containers/HomeContainer';
+import SettingsContainer from '../../containers/SettingsContainer';
+import './AppFrameComponent.css';
 
 class UserLogin extends Component {
     constructor(props) {
@@ -30,7 +37,7 @@ class UserLogin extends Component {
         this.props.login(this.state.email, this.state.password);
     }
 
-    renderLoginForm() {
+    renderLoginView() {
         const {
             error,
         } = this.props;
@@ -69,32 +76,41 @@ class UserLogin extends Component {
         );
     }
 
-    renderUserForm() {
+    renderAppView() {
         const {
-            token,
-            user,
             logout,
-            getUserData,
         } = this.props;
 
         return (
-            <div>
-                <div className="section">
-                    {
-                        user ?
-                            <UserForm user={user} /> :
-                            <button
-                                className="btn btn-primary"
-                                onClick={() => getUserData(token)}
-                            >
-                                Get userdata
-                            </button>
-                    }
-                </div>
+            <Router>
                 <div>
-                    <button className="btn btn-secondary" onClick={() => logout()}>Logout</button>
+                    <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+                        <div className="collapse navbar-collapse" id="navbarText">
+                            <ul className="navbar-nav mr-auto">
+                                <li className="nav-item active">
+                                    <Link className="nav-link" to="/">Home</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/settings">Settings</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/topics">Topics</Link>
+                                </li>
+                            </ul>
+                            <button
+                                className="btn btn-secondary pull-right"
+                                onClick={() => logout()}
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    </nav>
+                    <div className="section">
+                        <Route exact path="/" component={HomeContainer} />
+                        <Route exact path="/settings" component={SettingsContainer} />
+                    </div>
                 </div>
-            </div>
+            </Router>
         );
     }
 
@@ -102,31 +118,21 @@ class UserLogin extends Component {
         const { token } = this.props;
         return (
             <div>
-                {token ? this.renderUserForm() : this.renderLoginForm()}
+                {token ? this.renderAppView() : this.renderLoginView()}
             </div>
         );
     }
 }
 
 UserLogin.defaultProps = {
-    user: {},
     error: '',
 };
 
 UserLogin.propTypes = {
     token: PropTypes.string.isRequired,
-    user: PropTypes.shape({
-        id: PropTypes.string,
-        firstName: PropTypes.string,
-        lastName: PropTypes.string,
-        role: PropTypes.number,
-        email: PropTypes.string,
-        eliteProspectId: PropTypes.number,
-    }),
     error: PropTypes.string,
     login: PropTypes.func.isRequired,
     logout: PropTypes.func.isRequired,
-    getUserData: PropTypes.func.isRequired,
 };
 
 export default UserLogin;

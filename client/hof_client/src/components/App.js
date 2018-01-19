@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import UserLoginContainer from '../containers/UserLoginContainer';
+import AppFrameContainer from '../containers/AppFrameContainer';
 
 const App = () => {
     return (
         <div className="App">
-            <UserLoginContainer />
+            <AppFrameContainer />
         </div>
     );
 };
