@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
-import { getUserData } from '../actions';
+import { refreshUserData } from '../actions';
 import HomeComponent from '../components/HomeComponent/HomeComponent';
 
 const mapStateToProps = state => (
     {
         token: state.authReducer.token,
         user: state.authReducer.user,
+        loadingData: state.authReducer.loadingData,
     }
 );
 
 const mapDispatchToProps = dispatch => (
     {
-        getUserData: (token) => {
-            dispatch(getUserData(token));
+        refreshUserData: (token) => {
+            dispatch(refreshUserData(token));
         },
     }
 );

@@ -4,12 +4,15 @@ import {
     LOGINERROR,
     LOGOUT,
     GETUSERDATA,
+    GETUSERDATACOMPLETE,
 } from '../constants/actions';
 
 const initialState = {
-    token: localStorage.getItem('id_token') || '',
+    token: '',
     user: null,
     loginError: '',
+    loginLoading: false,
+    loadingData: false,
 };
 
 export default (state = initialState, action) => {
@@ -22,6 +25,7 @@ export default (state = initialState, action) => {
             {
                 token: '',
                 error: '',
+                loginLoading: true,
             },
         );
     case LOGINCOMPLETE:
@@ -31,6 +35,7 @@ export default (state = initialState, action) => {
             state,
             {
                 token: action.payload,
+                loginLoading: false,
             },
         );
     case LOGINERROR:
@@ -38,6 +43,7 @@ export default (state = initialState, action) => {
             {},
             state,
             {
+                loginLoading: false,
                 error: 'Login failed, user does not exist or password was incorrect.',
             },
         );
@@ -56,7 +62,17 @@ export default (state = initialState, action) => {
             {},
             state,
             {
+                user: null,
+                loadingData: true,
+            },
+        );
+    case GETUSERDATACOMPLETE:
+        return Object.assign(
+            {},
+            state,
+            {
                 user: action.payload,
+                loadingData: false,
             },
         );
     default:

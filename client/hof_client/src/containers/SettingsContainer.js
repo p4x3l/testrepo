@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
-import { getUserData } from '../actions';
+import { refreshUserData } from '../actions';
 import SettingsComponent from '../components/SettingsComponent/SettingsComponent';
 
 const mapStateToProps = state => (
     {
         token: state.authReducer.token,
+        userId: (state.authReducer.user || {}).id,
     }
 );
 
 const mapDispatchToProps = dispatch => (
     {
-        getUserData: (token) => {
-            dispatch(getUserData(token));
+        refreshUserData: (token) => {
+            dispatch(refreshUserData(token));
         },
     }
 );

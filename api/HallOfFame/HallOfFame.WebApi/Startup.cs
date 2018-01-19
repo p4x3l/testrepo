@@ -50,6 +50,15 @@ namespace HallOfFame.WebApi
                     };
                 });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             // Register the Swagger generator
             services.AddSwaggerGen(c =>
             {
@@ -65,14 +74,6 @@ namespace HallOfFame.WebApi
                     = Configuration.GetSection("MongoConnection:Database").Value;
             });
 
-            // Enable CORS
-            services.AddCors(options =>
-            {
-                options.AddPolicy("halloffame",
-                    policy => policy.WithOrigins("http://localhost:3000"));
-            });
-
-            // Enable Automapper
             services.AddAutoMapper();
 
             services.AddTransient<IUserService, UserService>();
@@ -91,13 +92,13 @@ namespace HallOfFame.WebApi
 
             app.UseAuthentication();
 
+            app.UseCors("CorsPolicy");
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
-            app.UseCors("halloffame");
 
             app.UseMvc();
         }

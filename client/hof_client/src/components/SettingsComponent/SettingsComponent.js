@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import * as authService from '../../services/authService';
+
 class SettingsComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             newPassword: '',
             oldPassword: '',
+            error: '',
         };
 
         this.handleNewPasswordChange = this.handleNewPasswordChange.bind(this);
@@ -15,22 +18,28 @@ class SettingsComponent extends Component {
     }
 
     handleNewPasswordChange(event) {
-        this.setState({ oldPassword: event.target.value });
+        this.setState({ newPassword: event.target.value });
     }
 
     handleOldPasswordChange(event) {
-        this.setState({ newPassword: event.target.value });
+        this.setState({ oldPassword: event.target.value });
     }
 
     handleSubmit(e) {
         e.preventDefault();
+
+        authService.changePassword(
+            this.props.token,
+            this.props.userId,
+            this.state.newPassword,
+            this.state.oldPassword,
+        )
+            .catch(() => {
+                this.setState({ error: 'Failed to change password' });
+            });
     }
 
     render() {
-        const {
-            error,
-        } = this.props;
-
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
@@ -60,19 +69,15 @@ class SettingsComponent extends Component {
                 <div className="form-group">
                     <button type="submit" className="btn btnPrimary">Sumbit</button>
                 </div>
-                {error ? <div>{error}</div> : ''}
+                {this.state.error ? <div>{this.state.error}</div> : ''}
             </form>
         );
     }
 }
 
-SettingsComponent.defaultProps = {
-    error: '',
-};
-
 SettingsComponent.propTypes = {
     token: PropTypes.string.isRequired,
-    error: PropTypes.string,
+    userId: PropTypes.string.isRequired,
 };
 
 export default SettingsComponent;

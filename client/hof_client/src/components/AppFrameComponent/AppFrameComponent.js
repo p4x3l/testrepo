@@ -24,6 +24,13 @@ class UserLogin extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillMount() {
+        const token = localStorage.getItem('id_token');
+        if (token) {
+            this.props.validateToken(token);
+        }
+    }
+
     handleEmailChange(event) {
         this.setState({ email: event.target.value });
     }
@@ -34,6 +41,11 @@ class UserLogin extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+
+        this.setState({
+            password: '',
+        });
+
         this.props.login(this.state.email, this.state.password);
     }
 
@@ -79,6 +91,7 @@ class UserLogin extends Component {
     renderAppView() {
         const {
             logout,
+            loadingData,
         } = this.props;
 
         return (
@@ -105,20 +118,33 @@ class UserLogin extends Component {
                             </button>
                         </div>
                     </nav>
-                    <div className="section">
-                        <Route exact path="/" component={HomeContainer} />
-                        <Route exact path="/settings" component={SettingsContainer} />
-                    </div>
+                    {
+                        loadingData ?
+                            'loading data' :
+                            (
+                                <div className="section">
+                                    <Route exact path="/" component={HomeContainer} />
+                                    <Route exact path="/settings" component={SettingsContainer} />
+                                </div>
+                            )
+                    }
                 </div>
             </Router>
         );
     }
 
     render() {
-        const { token } = this.props;
+        const { token, loginLoading } = this.props;
         return (
             <div>
-                {token ? this.renderAppView() : this.renderLoginView()}
+                {loginLoading ?
+                    'loading' :
+                    (
+                        <div>
+                            {token ? this.renderAppView() : this.renderLoginView()}
+                        </div>
+                    )
+                }
             </div>
         );
     }
@@ -131,8 +157,11 @@ UserLogin.defaultProps = {
 UserLogin.propTypes = {
     token: PropTypes.string.isRequired,
     error: PropTypes.string,
+    loginLoading: PropTypes.bool.isRequired,
+    loadingData: PropTypes.bool.isRequired,
     login: PropTypes.func.isRequired,
     logout: PropTypes.func.isRequired,
+    validateToken: PropTypes.func.isRequired,
 };
 
 export default UserLogin;

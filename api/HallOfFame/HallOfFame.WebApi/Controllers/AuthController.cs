@@ -36,6 +36,16 @@ namespace HallOfFame.WebApi.Controllers
             return BadRequest();
         }
 
+        [AllowAnonymous]
+        [HttpPost("validatetoken")]
+        public async Task<IActionResult> ValidateToken([FromBody] string token)
+        {
+            //Not implemented, always returns true
+
+            var isValid = await Task.FromResult(true);
+            return Ok(isValid);
+        }
+
         [HttpPut("password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel user)
         {

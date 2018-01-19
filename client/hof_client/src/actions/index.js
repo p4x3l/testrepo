@@ -4,15 +4,18 @@ import {
     LOGINERROR,
     LOGOUT,
     GETUSERDATA,
+    GETUSERDATACOMPLETE,
 } from '../constants/actions';
+
+import * as authService from '../services/authService';
 
 export const resetLogin = () => (
     {
         type: LOGIN,
     }
-)
+);
 
-export const storeUserCreds = payload => (
+export const storeUserToken = payload => (
     {
         type: LOGINCOMPLETE,
         payload,
@@ -25,9 +28,15 @@ export const loginFailed = () => (
     }
 );
 
-export const storeUserData = payload => (
+export const fetchUserData = () => (
     {
         type: GETUSERDATA,
+    }
+);
+
+export const storeUserData = payload => (
+    {
+        type: GETUSERDATACOMPLETE,
         payload,
     }
 );
@@ -38,26 +47,24 @@ export const logoutUser = () => (
     }
 );
 
+export const refreshUserData = token => (
+    (dispatch) => {
+        dispatch(fetchUserData());
+
+        authService.getUserData(token)
+            .then((response) => {
+                dispatch(storeUserData(response));
+            });
+    }
+);
+
 export const loginUser = (email, password) => (
     (dispatch) => {
         dispatch(resetLogin());
-        fetch(
-            'http://localhost:58805/api/auth/token',
-            {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
-            },
-        )
-            .then(r => r.json())
+        authService.loginUser(email, password)
             .then((response) => {
-                dispatch(storeUserCreds(response));
+                dispatch(storeUserToken(response));
+                dispatch(refreshUserData(response));
             })
             .catch(() => {
                 dispatch(loginFailed());
@@ -65,24 +72,16 @@ export const loginUser = (email, password) => (
     }
 );
 
-export const getUserData = token => (
+export const validateToken = token => (
     (dispatch) => {
-        dispatch(storeUserData({}));
+        dispatch(resetLogin());
+        authService.validateToken(token)
+            .then((isTokenValid) => {
+                dispatch(storeUserToken(isTokenValid ? token : ''));
 
-        fetch(
-            'http://localhost:58805/api/users/current',
-            {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`,
-                },
-            },
-        )
-            .then(r => r.json())
-            .then((response) => {
-                dispatch(storeUserData(response));
+                if (isTokenValid) {
+                    dispatch(refreshUserData(token));
+                }
             });
     }
 );
