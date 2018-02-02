@@ -1,0 +1,17 @@
+:root {
+  --true-black: #000;
+  --true-white: #FFF;
+  --blue: #4A90E2;
+  --dark-blue: #454B60;
+  --darker-blue: #12182D;
+  --medium-grey: #ebebeb;
+  --light-grey: #f7f7f7;
+
+
+  
+  --main-font-color: var(--dark-blue);
+  --main-font-color-hover: var(--darker-blue);
+  --main-bg-color: var(--true-white);
+  --main-menu-bg-color: var(--true-white);
+  --main-border-color: var(--medium-grey);
+}

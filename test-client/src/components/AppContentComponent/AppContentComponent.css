@@ -1,0 +1,24 @@
+@import '../../skins/_variables.css';
+@import '../../skins/_fonts.css';
+
+.leftSideMenu {
+  position: absolute;
+  top: 71px;
+  left: 0;
+  width: 230px;
+  bottom: 0;
+  background-color: var(--main-menu-bg-color);
+  border-right: 1px solid var(--main-border-color);
+}
+
+.menu-container {
+  margin-top: 40px;
+}
+
+.menu-text {
+  margin-left: 10px;
+}
+
+.content {
+  margin-left: 230px;
+}

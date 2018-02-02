@@ -1,0 +1,13 @@
+@import './_variables.css';
+
+.menu-header {
+  color: var(--main-font-color);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.menu-header:hover {
+  color: var(--main-font-color-hover);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}

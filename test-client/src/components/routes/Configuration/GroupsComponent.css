@@ -1,0 +1,40 @@
+@import '../../../skins/_variables.css';
+@import '../../../skins/_fonts.css';
+
+ul {
+  list-style: none;
+}
+
+.groups-view {
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+}
+
+.filtering-input {
+  width: 100%;
+}
+
+.group-list-item {
+  border: 1px solid var(--true-black);
+  border-top: none;
+}
+
+.group-list-item:first-child {
+  border-top: 1px solid var(--true-black);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.description-field {
+  width: 100%;
+  resize: none;
+}
+
+.group-member {
+  border: 1px solid var(--true-black);
+  margin-bottom: 15px;
+  padding: 15px;
+}

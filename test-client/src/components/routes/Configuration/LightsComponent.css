@@ -1,0 +1,34 @@
+@import '../../../skins/_variables.css';
+@import '../../../skins/_fonts.css';
+
+ul {
+  list-style: none;
+}
+
+.lights-view {
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+}
+
+.filtering-input {
+  width: 100%;
+}
+
+.light-list-item {
+  border: 1px solid var(--true-black);
+  border-top: none;
+}
+
+.light-list-item:first-child {
+  border-top: 1px solid var(--true-black);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.selector-indicator {
+  color: var(--blue);
+  padding: 5px;
+}

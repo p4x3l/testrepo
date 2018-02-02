@@ -1,0 +1,35 @@
+@import '../../skins/_variables.css';
+@import '../../skins/_fonts.css';
+
+.topBar {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid var(--main-border-color);
+  background-color: var(--main-menu-bg-color);
+}
+.logoSection {
+  margin-left: 10px;
+  align-self: center;
+  width: 230px;
+}
+.logo {
+  height: 50px;
+  width: 50px;
+}
+.menuSection {
+  flex: auto;
+}
+.topNav {
+  height: 70px;
+  background-color: transparent;
+}
+.topBarButton {
+  display: inline-block;
+  cursor: pointer;
+}
+.topBarIcon {
+  color: var(--main-font-color);
+}
+.topBarIcon:hover {
+  opacity: 0.5;
+}
