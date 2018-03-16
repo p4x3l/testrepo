@@ -1,0 +1,11 @@
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\bin\Debug\netcoreapp2.0\adapterTryout.deps.json
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\bin\Debug\netcoreapp2.0\adapterTryout.runtimeconfig.json
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\bin\Debug\netcoreapp2.0\adapterTryout.runtimeconfig.dev.json
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\bin\Debug\netcoreapp2.0\adapterTryout.dll
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\bin\Debug\netcoreapp2.0\adapterTryout.pdb
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\obj\Debug\netcoreapp2.0\adapterTryout.csprojResolveAssemblyReference.cache
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\obj\Debug\netcoreapp2.0\adapterTryout.csproj.CoreCompileInputs.cache
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\obj\Debug\netcoreapp2.0\adapterTryout.AssemblyInfoInputs.cache
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\obj\Debug\netcoreapp2.0\adapterTryout.AssemblyInfo.cs
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\obj\Debug\netcoreapp2.0\adapterTryout.dll
+C:\Git_Repo\testrepo\adapterTryout\adapterTryout\obj\Debug\netcoreapp2.0\adapterTryout.pdb
