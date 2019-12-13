@@ -4,6 +4,7 @@ import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
+import { initialState } from './store/state';
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
@@ -20,6 +21,8 @@ export function configure(aurelia: Aurelia) {
   // Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
   // aurelia.use.plugin(PLATFORM.moduleName('aurelia-html-import-template-loader'));
 
+  aurelia.use.plugin('aurelia-store', { initialState });
+
   if (environment.debug) {
     aurelia.use.developmentLogging();
   }
@@ -27,6 +30,8 @@ export function configure(aurelia: Aurelia) {
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }
+
+  aurelia.use.plugin(PLATFORM.moduleName('aurelia-store'), {initialState, history: {undoable: true}});
 
   return aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }

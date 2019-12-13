@@ -1,5 +1,6 @@
 import * as TypeMoq from 'typemoq';
 import { mock, instance, when, verify, anything } from 'ts-mockito';
+import { Substitute, Arg, SubstituteOf } from '@fluffy-spoon/substitute';
 
 import { TestServiceOne, MockApi } from './testServiceOne'
 
@@ -150,5 +151,80 @@ describe('TestServiceOne Typermoq', () => {
 
     // Assert
     mockApi.verify(x => x.delete('Person'), TypeMoq.Times.once());
+  });
+});
+
+describe('TestServiceOne substitute', () => {
+  let service: TestServiceOne;
+  let mockApi: SubstituteOf<MockApi>;;
+
+  beforeEach(() => {
+    mockApi = Substitute.for<MockApi>();
+    service = new TestServiceOne(mockApi);
+  });
+
+  it('should get person', async () => {
+    // Arrange
+    mockApi.get(Arg.any()).returns(Promise.resolve('TestPerson'));
+
+    // Act
+    const result = await service.get('Person');
+
+    // Assert
+    expect(result).toEqual('TestPerson');
+    mockApi.received(1).get(Arg.any());
+  });
+
+  it('should throw on error when fetching person', async () => {
+    // Arrange
+    mockApi.get(Arg.any()).returns(Promise.reject('Failed'));
+
+    // Act
+    try {
+      const result = await service.get('Person');
+    } catch (error) {
+      expect(error).toEqual('Failed');
+    }
+
+    // Assert
+    mockApi.received(1).get(Arg.any());
+  });
+
+  it('should get personlist', async () => {
+    // Arrange
+    mockApi.getAll().returns(Promise.resolve(['TestPerson1', 'TestPerson2', 'TestPerson3']));
+
+    // Act
+    const result = await service.getAll();
+
+    // Assert
+    expect(result.length).toBe(3);
+    mockApi.received(1).getAll();
+  });
+
+  it('should throw on error when fetching personlist', async () => {
+     // Arrange
+     mockApi.getAll().returns(Promise.reject('Failed'));
+ 
+     // Act
+     try {
+       const result = await service.getAll();
+     } catch (error) {
+       expect(error).toEqual('Failed');
+     }
+ 
+     // Assert
+     mockApi.received(1).getAll();
+  });
+
+  it('should delete person', async () => {
+    // Arrange
+    mockApi.delete(Arg.any()).returns(Promise.resolve(null));
+
+    // Act
+    const result = await service.delete('Person');
+
+    // Assert
+    mockApi.received(1).delete(Arg.any());
   });
 });

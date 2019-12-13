@@ -5,7 +5,7 @@ import { mock, instance, when, verify, anything, anyString, objectContaining } f
 
 import { TestServiceOne } from '../../services/testServiceOne/testServiceOne';
 import { TestServiceTwo } from '../../services/testServiceTwo/testServiceTwo';
-import { TestComponentOne } from './testComponentOne';
+import { TestComponentOne } from './test-component-one';
 import { Matcher } from 'ts-mockito/lib/matcher/type/Matcher';
 
 describe('TestComponentOne Mockito', () => {
@@ -61,7 +61,7 @@ describe('TestComponentOne Typemoq', () => {
 
   it('should route to person', () => {
     // Arrange
-    router.setup(x => x.navigateToRoute(TypeMoq.It.isAnyString(), TypeMoq.It.isAnyString())).returns(() => Promise.resolve(true));
+    router.setup(x => x.navigateToRoute(TypeMoq.It.isAnyString(), TypeMoq.It.isAnyString())).returns(() => true);
 
     // Act
     component.showPerson('person');

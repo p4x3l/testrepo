@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>0/15</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/11</span>
+        <span class='fraction'>0/14</span>
       </div>
     </div>
   </div>
@@ -75,12 +75,32 @@
 30
 31
 32
-33</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+33
+34
+35
+36
+37
+38</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -89,21 +109,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,6 +123,7 @@ import {Aurelia} from 'aurelia-framework'
 <span class="cstat-no" title="statement not covered" >import environment from './environment';</span>
 <span class="cstat-no" title="statement not covered" >import {PLATFORM} from 'aurelia-pal';</span>
 <span class="cstat-no" title="statement not covered" >import * as Bluebird from 'bluebird';</span>
+<span class="cstat-no" title="statement not covered" >import { initialState } from './store/state';</span>
 &nbsp;
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 <span class="cstat-no" title="statement not covered" >Bluebird.config({ warnings: { wForgottenReturn: false } });</span>
@@ -129,6 +140,8 @@ import {Aurelia} from 'aurelia-framework'
   // Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
   // aurelia.use.plugin(PLATFORM.moduleName('aurelia-html-import-template-loader'));
 &nbsp;
+<span class="cstat-no" title="statement not covered" >  aurelia.use.plugin('aurelia-store', { initialState });</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  if (environment.debug) {</span>
 <span class="cstat-no" title="statement not covered" >    aurelia.use.developmentLogging();</span>
   }
@@ -136,6 +149,8 @@ import {Aurelia} from 'aurelia-framework'
 <span class="cstat-no" title="statement not covered" >  if (environment.testing) {</span>
 <span class="cstat-no" title="statement not covered" >    aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));</span>
   }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  aurelia.use.plugin(PLATFORM.moduleName('aurelia-store'), {initialState, history: {undoable: true}});</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return aurelia.start().then(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >aurelia.setRoot(PLATFORM.moduleName('app')))</span>;</span></span>
 }
@@ -145,7 +160,7 @@ import {Aurelia} from 'aurelia-framework'
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Sep 30 2018 12:05:09 GMT+0200 (W. Europe Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Dec 13 2019 14:09:33 GMT+0100 (Central European Standard Time)
 </div>
 </div>
 <script src="prettify.js"></script>

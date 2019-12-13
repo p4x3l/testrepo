@@ -1,5 +1,6 @@
 import * as TypeMoq from 'typemoq';
 import { mock, instance, when, verify, anything } from 'ts-mockito';
+import { Substitute, Arg, SubstituteOf } from '@fluffy-spoon/substitute';
 
 import { TestServiceOne } from '../testServiceOne/testServiceOne';
 import { TestServiceTwo } from './testServiceTwo';
@@ -62,6 +63,27 @@ describe('TestServiceTwo Typermoq', () => {
   it('should run test4', () => {
     // Arrange
     testServiceOne.setup(x => x.getList()).returns(() => [ 'a', 'b', 'c', 'd' ]);
+
+    // Act
+    const result = service.test1(5);
+
+    // Assert
+    expect(result).toBe(25);
+  });
+});
+
+describe('TestServiceTwo substitute', () => {
+  let service: TestServiceTwo
+  let testServiceOne: SubstituteOf<TestServiceOne>;;
+
+  beforeEach(() => {
+    testServiceOne = Substitute.for<TestServiceOne>();
+    service = new TestServiceTwo(testServiceOne);
+  });
+
+  it('should run test4', () => {
+    // Arrange
+    testServiceOne.getList().returns([ 'a', 'b', 'c', 'd' ]);
 
     // Act
     const result = service.test1(5);
