@@ -33,5 +33,7 @@ export function configure(aurelia: Aurelia) {
 
   aurelia.use.plugin(PLATFORM.moduleName('aurelia-store'), {initialState, history: {undoable: true}});
 
+  aurelia.use.plugin(PLATFORM.moduleName('aurelia-validation'));
+
   return aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }

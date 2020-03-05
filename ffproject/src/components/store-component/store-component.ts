@@ -1,16 +1,23 @@
 import { autoinject } from 'aurelia-framework';
 import { connectTo } from 'aurelia-store';
 import { ContactState } from 'store/state';
-import { pluck } from 'rxjs/operators';
+import { pluck, isEmpty } from 'rxjs/operators';
 import { updateContactName, updateContactAddress } from 'store/actions';
 import * as _ from 'lodash';
 import Address from 'models/Address';
+import PropsEntity from 'models/PropsEnitity';
+import { ValidationController } from 'aurelia-validation';
 
 @autoinject
 @connectTo<ContactState>((store) => store.state.pipe(pluck('contact')))
 export class StoreComponent {
   private name: string;
   private address: Address;
+  private props: PropsEntity;
+
+  constructor(private validationController: ValidationController) {
+    this.props = new PropsEntity();
+  }
 
   private stateChanged(newState: ContactState, oldState: ContactState) {
     if (newState) {
@@ -51,5 +58,22 @@ export class StoreComponent {
     }
 
     updateContactAddress(newAddress);
+  }
+
+  private reset() {
+    this.props.prop1 = null;
+    this.props.prop2 = null;
+    this.props.prop3 = null;
+    this.props.prop4 = null;
+  }
+
+  private isValid() {
+    if (this.props) {
+      this.validationController.validate({ object: this.props})
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => console.log(error))
+    }
   }
 }
