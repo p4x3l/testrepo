@@ -1,0 +1,29 @@
+{
+  "name": "fb_node_server",
+  "version": "1.0.0",
+  "description": "FB test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p4x3l/testrepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/p4x3l/testrepo/issues"
+  },
+  "homepage": "https://github.com/p4x3l/testrepo#readme",
+  "dependencies": {
+    "@types/crypto-js": "^3.1.47",
+    "@types/express": "^4.17.8",
+    "@types/node-fetch": "^2.5.7",
+    "crypto-js": "^4.0.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "typescript": "^4.0.2"
+  }
+}

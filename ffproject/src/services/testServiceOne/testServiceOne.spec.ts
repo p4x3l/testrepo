@@ -81,7 +81,7 @@ describe('TestServiceOne Mockito', () => {
 
 describe('TestServiceOne Typermoq', () => {
   let service: TestServiceOne;
-  let mockApi: TypeMoq.IMock<MockApi>;;
+  let mockApi: TypeMoq.IMock<MockApi>;
 
   beforeEach(() => {
     mockApi = TypeMoq.Mock.ofType(MockApi);

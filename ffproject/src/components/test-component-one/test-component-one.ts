@@ -1,7 +1,7 @@
 import {Router} from 'aurelia-router';
 
-import { TestServiceOne } from './../../services/testServiceOne/testServiceOne';
-import { TestServiceTwo } from './../../services/testServiceTwo/testServiceTwo';
+import { TestServiceOne } from '../../services/testServiceOne/testServiceOne';
+import { TestServiceTwo } from '../../services/testServiceTwo/testServiceTwo';
 
 export class TestComponentOne {
   public persons: string[];
