@@ -1,0 +1,134 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add crypto-js
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\David.Tybbleus\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn;C:\Program Files\Microsoft SQL Server\140\Tools\Binn;C:\Program Files\Microsoft SQL Server\140\DTS\Binn;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio;C:\Program Files\Microsoft\Web Platform Installer;C:\Program Files\Microsoft Service Fabric\bin\Fabric\Fabric.Code;C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\wbin;C:\Program Files\nodejs;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\PuTTY;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Go\bin;C:\Program Files (x86)\Yarn\bin;C:\Python27\Scripts;C:\Python27;C:\Users\David.Tybbleus\AppData\Local\Microsoft\WindowsApps;C:\Users\David.Tybbleus\.dotnet\tools;C:\Users\David.Tybbleus\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\David.Tybbleus\AppData\Local\Programs\Fiddler;C:\Users\David.Tybbleus\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\David.Tybbleus\AppData\Roaming\npm;C:\Users\David.Tybbleus\AppData\Local\Microsoft\WindowsApps;C:\Users\David.Tybbleus\go\bin;C:\Users\David.Tybbleus\.dotnet\tools;C:\Users\David.Tybbleus\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  10.15.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\David.Tybbleus\AppData\Local\Yarn\Cache\v6\npm-tree-kill-1.2.2-4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc-integrity\node_modules\tree-kill\.yarn-metadata.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:310:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "fb-api-test",
+    "description": "An Aurelia client application.",
+    "version": "0.1.0",
+    "repository": {
+      "type": "???",
+      "url": "???"
+    },
+    "license": "MIT",
+    "dependencies": {
+      "aurelia-bootstrapper": "^2.3.2",
+      "aurelia-animator-css": "^1.0.4"
+    },
+    "devDependencies": {
+      "aurelia-cli": "^1.2.3",
+      "aurelia-testing": "^1.0.0",
+      "aurelia-tools": "^2.0.0",
+      "gulp": "^4.0.0",
+      "minimatch": "^3.0.4",
+      "through2": "^3.0.0",
+      "vinyl-fs": "^3.0.3",
+      "promise-polyfill": "^8.1.0",
+      "ts-loader": "^5.2.1",
+      "ts-node": "^7.0.1",
+      "@types/node": "^10.11.6",
+      "@types/lodash": "^4.14.117",
+      "@types/webpack": "^4.4.15",
+      "typescript": "^3.1.2",
+      "html-webpack-plugin": "^3.2.0",
+      "copy-webpack-plugin": "^5.0.0",
+      "mini-css-extract-plugin": "^0.4.3",
+      "aurelia-webpack-plugin": "^3.0.0",
+      "duplicate-package-checker-webpack-plugin": "^3.0.0",
+      "clean-webpack-plugin": "^1.0.1",
+      "webpack": "^4.27.0",
+      "webpack-cli": "^3.1.2",
+      "webpack-dev-server": "^3.1.9",
+      "expose-loader": "^0.7.5",
+      "style-loader": "^0.23.1",
+      "url-loader": "^1.1.2",
+      "css-loader": "^1.0.0",
+      "file-loader": "^2.0.0",
+      "app-settings-loader": "^1.0.2",
+      "json-loader": "^0.5.7",
+      "html-loader": "^0.5.5",
+      "istanbul-instrumenter-loader": "^3.0.1",
+      "webpack-bundle-analyzer": "^3.0.4",
+      "tree-kill": "^1.2.1",
+      "jest": "^24.1.0",
+      "jest-cli": "^24.1.0",
+      "jest-transform-stub": "^2.0.0",
+      "aurelia-loader-nodejs": "^1.0.1",
+      "aurelia-pal-nodejs": "^1.2.0",
+      "ts-jest": "^24.0.0",
+      "@types/jest": "^24.0.9"
+    },
+    "scripts": {
+      "build": "webpack --env.production --extractCss",
+      "start": "webpack-dev-server --extractCss",
+      "build:dev": "webpack --extractCss",
+      "analyze": "webpack --env.production --analyze",
+      "test": "au test"
+    },
+    "engines": {
+      "node": ">=8.9.0"
+    },
+    "jest": {
+      "moduleNameMapper": {
+        "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding"
+      },
+      "modulePaths": [
+        "<rootDir>/src",
+        "<rootDir>/node_modules"
+      ],
+      "moduleFileExtensions": [
+        "ts",
+        "js",
+        "json"
+      ],
+      "transform": {
+        "^.+\\.(css|less|sass|scss|styl|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "jest-transform-stub",
+        "^.+\\.ts$": "ts-jest"
+      },
+      "testRegex": "\\.spec\\.(ts|js)$",
+      "setupFiles": [
+        "<rootDir>/test/jest-pretest.ts"
+      ],
+      "testEnvironment": "node",
+      "collectCoverage": true,
+      "collectCoverageFrom": [
+        "src/**/*.{js,ts}",
+        "!**/*.spec.{js,ts}",
+        "!**/node_modules/**",
+        "!**/test/**"
+      ],
+      "coverageDirectory": "<rootDir>/test/coverage-jest",
+      "coverageReporters": [
+        "json",
+        "lcov",
+        "text",
+        "html"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

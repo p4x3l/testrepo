@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <div>
+      <label>
+        Api Version
+        <input type="text" value.bind="apiVersion" />
+      </label>
+    </div>
+    <div>
+      <label>
+        Pixel ID
+        <input type="text" value.bind="pixelId" />
+      </label>
+    </div>
+    <div>
+      <label>
+        Token
+        <textarea value.bind="token"></textarea>
+      </label>
+    </div>
+    <button click.trigger="sendFbRequest()">Send request</button>
+  </div>
+ <!-- <div>
+    <div>
+      <label>Firstname</label>
+      <span>${user.firstName}</span>
+    </div>
+    <div>
+      <label>Surname</label>
+      <span>${user.surName}</span>
+    </div>
+    <div>
+      <label>Email</label>
+      <span>${user.email}</span>
+    </div>
+    <div>
+      <label>Gender</label>
+      <span>${user.gender}</span>
+    </div>
+  </div> -->
+</template>
