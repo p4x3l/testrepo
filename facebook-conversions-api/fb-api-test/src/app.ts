@@ -2,12 +2,12 @@ import CryptoJS from 'crypto-js';
 import { CompileSpy } from 'aurelia-testing';
 
 export class App {
-  private appId: string =  '2805966193060065';
-  private appSecret: string = '989f389770a0819e86216fd9615d781d';
+  private appId: string =  'AppID';
+  private appSecret: string = 'AppSecret';
 
   private apiVersion: string = 'v8.0';
-  private pixelId: string = '3223765234388297';
-  private token: string = 'EAAn4AuowaOEBAIjxX8kdNPyNjWZByKtsDliI6hSvAqhv6hkK6c8nDA9MjwfadEoWtzOoHJlgIMQCnWL4hwHKdZCNZBHT8WfIw5AW32b09zoUBQsrdeVBW4q5CYN6813ZBZCMcXOek3ybpB56WIQdOPybgSDwZAXyOwowHB3w4t6kPa16sL7OyZCcNg6n1XdlznpZCidl8WtzVwZDZD';
+  private pixelId: string = 'PixelId';
+  private token: string = 'Token';
 
   public user = {
     firstName: 'David',
@@ -49,6 +49,7 @@ export class App {
       },
       body: JSON.stringify({ data: data }) // body data type must match 'Content-Type' header
     });
-    return response.json();
+    var stuff = await response.json();
+    console.log(stuff);
   }
 }

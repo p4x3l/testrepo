@@ -2,12 +2,12 @@ import CryptoJS from 'crypto-js';
 import fetch from 'node-fetch';
 
 export default class FacebookEventsService {
-    private appId: string =  '2805966193060065';
-    private appSecret: string = '989f389770a0819e86216fd9615d781d';
+    private appId: string =  'AppId';
+    private appSecret: string = 'AppSecret';
 
     private apiVersion: string = 'v8.0';
-    private pixelId: string = '3223765234388297';
-    private token: string = 'EAAn4AuowaOEBADsJXfVqTcZAFoLQR6sfCsqUj8ZCbxVPk8yfzufgJRX9BiXwvZBkGrXngJhgdFsjHPX7zRDwRIqEm8x7qy8vCZClGNGfXnzSjB8IrqFi2dBztylnBR1VUHthQ7IBQfMyjieaMw2Y9CiFT1tKTULeqF3QS6ZAp9wg2yP2F6BmCPgrNZBPDUAkhksZCQHvtoG2FKZCSaZB46dIIOfL7evx4Hra2XHOskmT66QZDZD';
+    private pixelId: string = 'PixelId';
+    private token: string = 'Token';
     private generatedToken: string = '';
 
     public user = {
