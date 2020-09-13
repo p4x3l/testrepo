@@ -29,19 +29,20 @@ namespace FB_WebApi.Services
 
         public FacebookService(IConfiguration configuration, IHttpClientFactory clientFactory)
         {
+            // Get from settings?
+            appId = "2805966193060065";
+            appSecret = "989f389770a0819e86216fd9615d781d";
+
+            baseUrl = "https://graph.facebook.com/";
+            apiVersion = "v8.0";
+            pixelId = "3223765234388297";
+
             _configuration = configuration;
             _httpClientFactory = clientFactory;
             _contractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new SnakeCaseNamingStrategy()
             };
-
-            appId = "2805966193060065";
-            appSecret = "989f389770a0819e86216fd9615d781d";
-
-            baseUrl = _configuration.GetValue<string>("BaseUrl"); ;
-            apiVersion = _configuration.GetValue<string>("ApiVersion"); ;
-            pixelId = _configuration.GetValue<string>("PixelId"); ;
         }
 
         public async Task<string> GenerateNewToken()
