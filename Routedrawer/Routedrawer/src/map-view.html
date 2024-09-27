@@ -1,0 +1,15 @@
+<template>
+  <!-- Show input field if locations are not committed -->
+  <div if.bind="showInput">
+    <h3>Paste your locations (in JSON format):</h3>
+    <textarea value.bind="inputText" rows="10" style="width: 100%;"></textarea>
+    <button click.trigger="commitLocations()">Commit Locations</button>
+  </div>
+
+  <!-- Show the map and draw button once locations are committed -->
+  <div if.bind="!showInput">
+    <div id="map" style="height: 500px; width: 100%; margin-bottom: 10px;"></div>
+    <button click.trigger="drawNextSegment()">Draw Next Segment</button>
+  </div>
+</template>
+  
