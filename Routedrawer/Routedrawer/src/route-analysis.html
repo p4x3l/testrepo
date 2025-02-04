@@ -1,0 +1,24 @@
+<template>
+  <!-- Show input field if locations are not committed -->
+  <div if.bind="showInput">
+    <h3>Paste your json data:</h3>
+    <textarea value.bind="inputText" rows="10" style="width: 100%;"></textarea>
+    <button click.trigger="commitJson()">Commit</button>
+  </div>
+
+  <!-- Show the map and draw button once locations are committed -->
+  <div if.bind="!showInput">
+    <ul>
+      <li repeat.for="route of routes">
+        <div click.trigger="toggleStudents(route)">
+          <strong>${route.routeName}</strong> (ID: ${route.routeId})
+          <ul if.bind="route.showStudents">
+            <li repeat.for="student of route.students">
+              ${student.id} - Trips: ${student.numberOfTrips}
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
